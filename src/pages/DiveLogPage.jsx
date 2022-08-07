@@ -33,9 +33,6 @@ function DiveLogPage() {
     <DiveProvider>
       <div className="container mx-auto">
 
-        {/*　if I had been able to get the log in feature to work, I would have added this: */}
-
-
         {!loggedIn && (
           <div className="lg:px-10 mt-6">
             <div className="alert shadow-lg mb-4 px-2 lg:mb-10 lg:px-10">

@@ -1,15 +1,8 @@
-// log in - modal ?
-// sign up - modal ?
-// my account - display if logged in = true
-
-
 import Spinner from '../components/shared/Spinner'
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify'
 import { getAuth, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
-// https://firebase.google.com/docs/auth/web/password-auth  - sign up/in/out
-// https://firebase.google.com/docs/auth/web/manage-users  - udating the name
 
 
 function SignInUp() {
@@ -56,9 +49,6 @@ function SignInUp() {
     )
   }
 
-
-
-
   const onSubmit = async (e) => {
     e.preventDefault()
     console.log(auth)
@@ -73,16 +63,7 @@ function SignInUp() {
         })
 
         toast.success('Account created!')
-        // setSignMethod('')
-        // setUser({
-        //   email: '',
-        //   password: '',
-        //   name: ''
-        // })
-        // automatically resets because component will unmount/reset
 
-        // !!! THIS MUST GO AFTER ANY SETTING OF STATE OF THE CURRENT COMPONENT
-        // redirects to previous page:
         navigate(-1)
 
       } catch (error) {
@@ -108,12 +89,9 @@ function SignInUp() {
     }
   }
 
-
   const setSign = (e) => {
     e.target.id === 'in' ? setSignMethod('in') : setSignMethod('up')
   }
-
-
 
 
   return (

@@ -8,9 +8,6 @@ import Drizzle from './img/drizzle.png'
 import Snow from './img/snow.png'
 import Mist from './img/mist.png'
 import Thunderstorm from './img/thunder.png'
-// import PartlyCloudy from '../img/partly-cloudy.png'
-// these weather icons are not exhaustive - go back and check which ones missing and dl/add !!!
-
 
 function WeatherItem({ city }) {
 
@@ -48,7 +45,6 @@ function WeatherItem({ city }) {
         <div className='text-left font-bold px-6 '>{city.location}, {city.country}</div>
         <div className='flex justify-around items-center px-4 py-0 w-60 h-10'>
           <div>{Math.round(city.airTemp)}°C</div>
-          {/* <div>{city.weather}</div> */}
           <img className='w-12' src={
             city.weather === 'Clouds' ? Clouds :
               city.weather === 'Clear' ? Clear :

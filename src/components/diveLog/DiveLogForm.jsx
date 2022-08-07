@@ -1,5 +1,3 @@
-// https://firebase.google.com/docs/firestore/manage-data/add-data
-
 import { v4 as uuidv4 } from 'uuid'
 import { useContext, useEffect, useState } from 'react'
 import DiveContext from '../../context/diveContext/DiveContext'
@@ -62,7 +60,6 @@ function DiveLogForm({ pendingFetch, setPendingFetch }) {
 
   const handleClick = async (e) => {
     e.preventDefault();
-    // if (typeof (log) !== 'number') return toast.error('Please check the log number')
     if (date === '') return toast.error('Please check the date')
     if (diveLocation === '') return toast.error('Please check the location')
     if (diveTime === '') return toast.error('Please check the dive time')
@@ -88,11 +85,6 @@ function DiveLogForm({ pendingFetch, setPendingFetch }) {
 
     if (editing === true) {
       if (auth.currentUser !== null) {
-        // can either update or delete and re-add
-
-        // await updateDoc(doc(db, 'logs', current[0].id), {
-        //   log, date, diveLocation, diveTime, depth, timeIn, timeOut, startBar, endBar, visibility, airTemp, surfaceTemp, bottomTemp, conditions, notes
-        // });
 
         const docRef = addDoc(collection(db, "logs"), {
           log, date, diveLocation, diveTime, depth, timeIn, timeOut, startBar, endBar, visibility, airTemp, surfaceTemp, bottomTemp, conditions, notes,
@@ -184,8 +176,6 @@ function DiveLogForm({ pendingFetch, setPendingFetch }) {
       </div>
 
       <form>
-        {/* if you don't include this value={diveLocation} then it won't clear out the value or show any values you display that aren't directly typed into that form input box */}
-
         <div className="grid grid-cols-1 lg:flex flex-row py-4 justify-around">
           <div className='flex flex-col'>
             <label className='p-1 text-center lg:text-left' htmlFor="log">Log Number: (required)</label>

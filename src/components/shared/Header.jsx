@@ -10,8 +10,4 @@ Header.propTypes = {
   title: PropTypes.string.isRequired
 }
 
-// Header.defaultProps = {
-//   title: 'Theres no title'
-// }
-
 export default Header

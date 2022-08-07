@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react'
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth";
 import { toast } from 'react-toastify';
 
-// https://firebase.google.com/docs/auth/web/password-auth
 
 function UserBtn() {
   const [loggedIn, setLoggedIn] = useState(false)
@@ -30,14 +29,8 @@ function UserBtn() {
 
   const signOut = () => {
     setLoggedIn(false)
-    // this is in the docs but it didn't work
-    // signOut(auth)
-
-    // so instead I used this from traversy media
     auth.signOut()
 
-
-    // navigate('/')
     toast.success('Logged out')
   }
 

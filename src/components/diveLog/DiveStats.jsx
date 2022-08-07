@@ -29,8 +29,6 @@ const DiveStats = () => {
             <div className="stat-value lg:text-4xl sm:text-xl text-lg">{fetchedDives.length > 1 ? fetchedDives.sort((a, b) => +b.diveTime - +a.diveTime)[0].diveTime : fetchedDives[0].diveTime} mins</div>
           </div>
 
-          {/* <p>Number of different locations dived: {numberOfLocations}</p> */}
-
         </div>
       </div>
     )
@@ -55,8 +53,6 @@ const DiveStats = () => {
             <div className="stat-title lg:text-md text-sm whitespace-normal">Longest time to date:</div>
             <div className="stat-value lg:text-4xl sm:text-xl text-lg">{dives.length > 1 ? dives.sort((a, b) => +b.diveTime - +a.diveTime)[0].diveTime : dives[0].diveTime} mins</div>
           </div>
-
-          {/* <p>Number of different locations dived: {numberOfLocations}</p> */}
 
         </div>
       </div>

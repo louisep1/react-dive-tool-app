@@ -1,4 +1,3 @@
-
 import { useContext } from 'react'
 import DiveContext from '../../context/diveContext/DiveContext'
 import { getAuth, onAuthStateChanged } from "firebase/auth";

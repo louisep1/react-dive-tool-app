@@ -1,9 +1,3 @@
-// https://react-leaflet.js.org/docs/start-setup/
-// https://leafletjs.com/SlavaUkraini/examples/quick-start/
-// needs to have leaflet and react-leaflet installed (as well as react and react-dom)
-// needs container div with set height and the MapContained itself needs set height too
-// also need to include styles link in index.html
-
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import Header from '../components/shared/Header'
 import LocationItem from '../components/diveMap/LocationItem'
@@ -12,7 +6,6 @@ import Spinner from '../components/shared/Spinner'
 import { useState, useEffect } from 'react'
 import { collection, getDocs, query, where, orderBy, limit, startAfter } from 'firebase/firestore'
 import { db } from '../firebase.config'
-// https://firebase.google.com/docs/firestore/query-data/get-data
 
 function DiveMapPage() {
   const [loading, setLoading] = useState(true)
@@ -24,16 +17,10 @@ function DiveMapPage() {
 
   const fetchLocations = async () => {
     try {
-      // get reference (to specific collection)
       const locationsRef = collection(db, 'sites')
 
-      // create a query
-      // !!! this step is redundant if there are no arguments - no actual query ((locationsRef) is not a query) 
-      // if using query in future - change getDocs(locationsRef) to getDocs(q)
-      // if not using query - change getDocs(q) to getDocs(locationsRef)
       const q = query(locationsRef, orderBy('country'))
 
-      // execute query
       const querySnap = await getDocs(q)
 
       const locations = []
@@ -57,7 +44,6 @@ function DiveMapPage() {
   useEffect(() => {
     fetchLocations()
   }, [])
-  // ! I need to think about what to put in this dependency array so that the component updates when I submit new data
 
 
   useEffect(() => {
@@ -70,9 +56,6 @@ function DiveMapPage() {
 
   const handleChange = (e) => {
     setSearch(e.target.value)
-    // WE CANNOT DO THIS, because it will be the previous search state!!!! 
-    // const keyword = search.toLowerCase()
-    // Therefore: (up to date)
     const keyword = e.target.value.toLowerCase()
     const filtered = []
     locations.map(location => {

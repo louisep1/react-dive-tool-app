@@ -12,11 +12,7 @@ function WeatherSearch() {
 
   const handleClick = async (e) => {
     e.preventDefault()
-
-    // saving the returned search result data to a variable byt using await to wait for the response:
     const searchCityData = await searchCities(searchCity)
-
-    // console.log({ id: searchCityData.id, location: searchCityData.name, weather: searchCityData.weather[0].main, description: searchCityData.weather[0].description, airTemp: searchCityData.main.temp })
 
     if (cities.filter(city => city.id === searchCityData.id).length > 0) {
       alert('City already listed')

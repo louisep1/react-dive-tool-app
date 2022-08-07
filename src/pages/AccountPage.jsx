@@ -6,8 +6,6 @@ function AccountPage() {
 
   const navigate = useNavigate()
 
-  // NEED TO FIND A WAY TO CHECK THIS:
-  // this is in case someone tries to manually type this url into the address bar
   useEffect(() => {
     if (loggedIn === false) {
       navigate('/sign-in-up')

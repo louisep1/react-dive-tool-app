@@ -13,7 +13,6 @@ function WeatherDisplay() {
   } else {
     return (
       <>
-        {/* <div className='card bg-slate-400 text-center p-2 my-10 mx-auto w-max'>Weather forecast pending...</div> */}
         {cities.map(city => <WeatherItem key={city.id} city={city} />)}
       </>
     )

@@ -5,7 +5,6 @@ function LocationItem({ data }) {
   return (
     <>
       <div className="text-xl"><MdLocationOn className='inline' /> {data.location}{(data.city && data.city !== data.location) && ` - ${data.city}`}{data.country && `, ${data.country}`}</div>
-      {/*  ({data.geolocation.lat}, {data.geolocation.lng}) */}
     </>
   )
 }

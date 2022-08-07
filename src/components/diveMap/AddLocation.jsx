@@ -2,12 +2,6 @@ import { useState, useRef } from 'react'
 import { toast } from 'react-toastify'
 import { collection, addDoc } from "firebase/firestore";
 import { db } from '../../firebase.config'
-// https://firebase.google.com/docs/firestore/manage-data/add-data
-// https://developers.google.com/maps/documentation/geocoding/start
-
-// use ref:
-// https://thewebdev.info/2021/09/19/what-is-the-equivalent-of-document-getelementbyid-in-react/
-
 
 function AddLocation({ fetchLocations }) {
   const [addLocation, setAddLocation] = useState({
@@ -28,7 +22,6 @@ function AddLocation({ fetchLocations }) {
       ...prevState,
       [e.target.id]: e.target.value
     }))
-    // console.log(addLocation)
   }
 
 
@@ -45,8 +38,6 @@ function AddLocation({ fetchLocations }) {
 
       console.log(data.results[0])
 
-
-      // difference between setDoc() and addDoc() is setDoc requires you to submit a unique id, whereas addDoc will generate it for you
       const docRef = await addDoc(collection(db, 'sites'), {
         location: data.results[0].address_components[0].long_name,
         city: data.results[0].address_components[1].long_name,
@@ -78,12 +69,6 @@ function AddLocation({ fetchLocations }) {
 
   const submitCoords = async (e) => {
     e.preventDefault()
-
-    // testing useRef:
-    // console.log(`testing: ${coordPopupRef.current.id}`)
-    // console.log(`testing: ${coordPopupRef.current.className}`)
-    // console.log(`testing: ${coordPopupRef.current.checked}`)
-
 
     try {
       const response = await fetch(
